@@ -11,16 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023124358) do
+ActiveRecord::Schema.define(version: 20151114183726) do
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer  "group_id",   limit: 4, null: false
+    t.integer  "user_id",    limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer  "tenant_id",  limit: 4,   null: false
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "category_id", limit: 4,   null: false
+    t.string   "body",        limit: 255, null: false
+    t.string   "profile",     limit: 255, null: false
+    t.string   "form",        limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string   "acount",                     null: false
-    t.string   "password"
-    t.boolean  "admin",      default: false, null: false
-    t.string   "creator"
-    t.string   "email",                      null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "account",    limit: 255,                 null: false
+    t.string   "password",   limit: 255,                 null: false
+    t.boolean  "admin",      limit: 1,   default: false, null: false
+    t.string   "creator",    limit: 255,                 null: false
+    t.string   "email",      limit: 255,                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
 end
