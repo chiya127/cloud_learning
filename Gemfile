@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
   gem 'pry-rails'
   gem 'awesome_print'
+  gem 'annotate'
 end
 
 group :development, :test do
