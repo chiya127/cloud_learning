@@ -4,7 +4,7 @@ class CreateCategoryUsers < ActiveRecord::Migration
       t.string :display, null: false
       t.integer :user_id, null: false
       t.integer :category_id, null: false
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

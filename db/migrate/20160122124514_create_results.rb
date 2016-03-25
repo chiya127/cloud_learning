@@ -5,7 +5,7 @@ class CreateResults < ActiveRecord::Migration
       t.integer :category_id, null: false
       t.integer :question, null: false
       t.integer :score, null: false
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

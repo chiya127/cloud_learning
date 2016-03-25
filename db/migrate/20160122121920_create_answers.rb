@@ -6,7 +6,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.string :note, null false
       t.string :profile, null: false
       t.string :result, null false
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
