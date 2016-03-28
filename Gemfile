@@ -36,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari', '~> 0.16.3'
 
 # CSSFramework
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
 
 # File Upload Manager
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
