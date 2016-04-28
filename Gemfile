@@ -32,6 +32,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# paginator
+gem 'kaminari', '~> 0.16.3'
+
+# CSSFramework
+gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
+
+# File Upload Manager
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+
 group :development do
   gem 'pry-rails'
   gem 'awesome_print'
@@ -47,5 +56,12 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # for BDD
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  # fixtures
+  gem 'factory_girl', '~> 4.5'
+  # For Integration Test
+  gem 'capybara', '~> 2.6', '>= 2.6.2'  
 end
 

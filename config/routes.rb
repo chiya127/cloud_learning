@@ -14,14 +14,43 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :users
-  resources :categories
-  resources :groups
-  resources :questions
-  resources :tenants
-  resources :results
-  resources :answers
+  # administrator url
+  scope :admin do
+	  resources :tenants do
+		resources :groups do
+			resources :users do
+			end
+		end
+		resources :group_users, :questions, :answers do
+		end
+	  end
+  end
+  # user url
+  resources :tenants do
+	  resources :categories, only: [:index, :show] do
+		  resources :questions, only: [:index, :show] do
+			  resources :answers, only: [:index] do
+			  end
+		  end
+		  resource :result, only: [:index] do
+		  end
+		  scope :ranking do
+			  resources :result, only: [:show] do
+			  end
+		  end
+	  end
+  end
 
+  # login function
+  scope :login do
+	  resource :user, only: [:login]
+  end
+  scope :logout do
+	  resource :user, only: [:logout]
+  end
+  scope :ranking do
+	  resources :result, only: [:index]
+  end
   # Example resource route with options:
   #   resources :products do
   #     member do
