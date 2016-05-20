@@ -31,24 +31,24 @@ tenant2.groups.create(:name => "tenant2_group2")
 tenant2.groups.create(:name => "tenant2_group3")
 
 # create User Data
-User.create(:acount => "tenant1_group1_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group1_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group1_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group2_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group2_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group2_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group3_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group3_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant1_group3_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group1_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group1_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group1_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group2_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group2_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group2_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group3_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group3_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
-User.create(:acount => "tenant2_group3_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group1_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group1_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group1_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group2_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group2_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group2_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group3_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group3_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant1_group3_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group1_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group1_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group1_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group2_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group2_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group2_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group3_user1", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group3_user2", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
+User.create(:account => "tenant2_group3_user3", :password => "user1", :admin => false, :creator => false, :email => "test@ne.jp")
 
 # categories
 basicInfo = Category.create(:subject => "基本情報技術者試験")
@@ -60,45 +60,46 @@ networksp = Category.create(:subject => "ネットワークスペシャリスト
 users = User.all
 groups = Group.all
 groups.each do |group|
-   users.each do |user|
-       if user.acount.index(group.name) != nil
-          GroupUser.create(:group_id => group.id, :user_id => user.id)
-       end
-   end 
+  users.each do |user|
+    if user.account.index(group.name) != nil
+      GroupUser.create(:group_id => group.id, :user_id => user.id)
+    end
+  end
 end
 
 # relation Category <==> User
 users.each do |user|
-    if user.acount.index("group1") != nil 
-        CategoryUser.create(:display => "基本情報技術者", :category_id => basicInfo.id, :user_id => user.id)
-    elsif user.acount.index("group2") != nil 
-        CategoryUser.create(:display => "セキュリティマネージメント試験", :category_id => secureManager.id, :user_id => user.id)
-    else
-        CategoryUser.create(:display => "ネットワークスペシャリスト", :category_id => networksp.id, :user_id => user.id)
-    end
+  if user.account.index("group1") != nil
+    CategoryUser.create(:display => "基本情報技術者", :category_id => basicInfo.id, :user_id => user.id)
+  elsif user.account.index("group2") != nil
+    CategoryUser.create(:display => "セキュリティマネージメント試験", :category_id => secureManager.id, :user_id => user.id)
+  else
+    CategoryUser.create(:display => "ネットワークスペシャリスト", :category_id => networksp.id, :user_id => user.id)
+  end
 end
 
 # questions
 5.times do | no |
-    Question.create(:category_id => basicInfo.id, :body => "問題#{no}", :profile => "", :form => "")
-    Question.create(:category_id => secureManager.id, :body => "問題#{no}", :profile => "", :form => "")
-    Question.create(:category_id => networksp.id, :body => "問題#{no}", :profile => "", :form => "")
+  Question.create(:category_id => basicInfo.id, :body => "問題#{ no }", :profile => "", :form => "")
+  Question.create(:category_id => secureManager.id, :body => "問題#{ no }", :profile => "", :form => "")
+  Question.create(:category_id => networksp.id, :body => "問題#{ no }", :profile => "", :form => "")
 end
 
 # answers
 questions = Question.all
 questions.each do | question |
-    Answer.create(:question_id => question.id, :body => "#{question.body}の回答", :note => "#{question.body}の解説", :profile => "", :result => "正答")
+  Answer.create(:question_id => question.id, :body => "#{ question.body }の回答", :note => "#{ question.body }の解説", :profile => "", :result => "正答")
 end
+
 # results
 users = User.all
 catetories = Category.all
 questions = Question.all
 catetories.each do |category|
-    users.each do |user|
-        questions.each do |question|
-            Result.create(:user_id => user.id, :category_id => category.id, :question => question.id, :score => rand(100))
-        end
+  users.each do |user|
+    questions.each do |question|
+      Result.create(:user_id => user.id, :category_id => category.id, :question => question.id, :score => rand(100))
     end
+  end
 end
 # 2016-04-29 t-ito modify end

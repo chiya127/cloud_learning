@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20160212125138) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "acount",     limit: 255,                 null: false
+    t.string   "account",    limit: 255,                 null: false
     t.string   "password",   limit: 255
     t.boolean  "admin",      limit: 1,   default: false, null: false
     t.boolean  "creator",    limit: 1
