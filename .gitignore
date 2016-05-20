@@ -10,6 +10,8 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/db/.DS_Store
+/db/migrate/.DS_Store
 
 # Ignore database.yml
 /config/database.yml
@@ -18,4 +20,5 @@
 /log/*
 !/log/.keep
 /tmp
-.DS_Store
+/.DS_Store
+/vendor/bundle/
