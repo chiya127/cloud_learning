@@ -16,40 +16,35 @@ Rails.application.routes.draw do
 
   # administrator url
   scope :admin do
-	  resources :tenants do
-		resources :groups do
-			resources :users do
-			end
-		end
-		resources :group_users, :questions, :answers do
-		end
-	  end
+    resources :tenants do
+      resources :groups do
+        resources :users
+      end
+    end
+    resources :group_users, :questions, :answers
   end
   # user url
   resources :tenants do
-	  resources :categories, only: [:index, :show] do
-		  resources :questions, only: [:index, :show] do
-			  resources :answers, only: [:index] do
-			  end
-		  end
-		  resource :result, only: [:index] do
-		  end
-		  scope :ranking do
-			  resources :result, only: [:show] do
-			  end
-		  end
-	  end
+    resources :categories, only: [:index, :show] do
+      resources :questions, only: [:index, :show] do
+        resources :answers, only: [:index]
+      end
+      resource :result, only: [:index]
+      scope :ranking do
+        resources :result, only: [:show]
+      end
+    end
   end
 
   # login function
   scope :login do
-	  resource :user, only: [:login]
+    resource :user, only: [:login]
   end
   scope :logout do
-	  resource :user, only: [:logout]
+    resource :user, only: [:logout]
   end
   scope :ranking do
-	  resources :result, only: [:index]
+    resources :result, only: [:index]
   end
   # Example resource route with options:
   #   resources :products do
