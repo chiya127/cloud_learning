@@ -22,3 +22,4 @@
 /tmp
 /.DS_Store
 /vendor/bundle/
+/vendor/.DS_Store
