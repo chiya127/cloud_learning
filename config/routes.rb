@@ -17,26 +17,21 @@ Rails.application.routes.draw do
   # administrator url
   scope :admin do
 	  resources :tenants do
-		resources :groups do
-			resources :users do
-			end
-		end
-		resources :group_users, :questions, :answers do
-		end
-	  end
+      resources :groups do
+        resources :users
+		  end
+    end
+		resources :group_users, :questions, :answers
   end
   # user url
   resources :tenants do
 	  resources :categories, only: [:index, :show] do
 		  resources :questions, only: [:index, :show] do
-			  resources :answers, only: [:index] do
-			  end
+			  resources :answers, only: [:index]
 		  end
-		  resource :result, only: [:index] do
-		  end
+		  resource :result, only: [:index]
 		  scope :ranking do
-			  resources :result, only: [:show] do
-			  end
+			  resources :result, only: [:show]
 		  end
 	  end
   end
