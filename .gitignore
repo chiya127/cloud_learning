@@ -19,7 +19,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
+/lib/assets/.keep
+/lib/tasks/.keep
+/log/.keep
 /tmp
+/tmp/*
 /.DS_Store
 /vendor/bundle/
 /vendor/.DS_Store
