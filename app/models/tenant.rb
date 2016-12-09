@@ -1,3 +1,17 @@
 class Tenant < ActiveRecord::Base
-    has_many :groups
+  # consts
+
+  # associations
+  has_many :groups
+
+  # scopes
+
+  # validates
+
+  # triggers
+
+  # instance-methods
+
+  # class-methods
+
 end

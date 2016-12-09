@@ -1,4 +1,18 @@
 class CategoryUser < ActiveRecord::Base
-    belongs_to :user
-    belongs_to :category
+  # consts
+
+  # associations
+  belongs_to :user
+  belongs_to :category
+
+  # scopes
+
+  # validates
+
+  # triggers
+
+  # instance-methods
+
+  # class-methods
+
 end

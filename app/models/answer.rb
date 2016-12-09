@@ -1,3 +1,17 @@
 class Answer < ActiveRecord::Base
-    belongs_to :question
+  # consts
+
+  # associations
+  belongs_to :question
+
+  # scopes
+
+  # validates
+
+  # triggers
+
+  # instance-methods
+
+  # class-methods
+
 end

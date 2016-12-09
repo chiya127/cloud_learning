@@ -1,3 +1,17 @@
 class Question < ActiveRecord::Base
-    has_many :anwsers
+  # consts
+
+  # associations
+  has_many :anwsers
+
+  # scopes
+
+  # validates
+
+  # triggers
+
+  # instance-methods
+
+  # class-methods
+
 end

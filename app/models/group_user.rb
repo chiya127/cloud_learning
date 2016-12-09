@@ -1,4 +1,18 @@
 class GroupUser < ActiveRecord::Base
-    has_many :groups
-    has_many :users
+  # consts
+
+  # associations
+  has_many :groups
+  has_many :users
+
+  # scopes
+
+  # validates
+
+  # triggers
+
+  # instance-methods
+
+  # class-methods
+
 end
